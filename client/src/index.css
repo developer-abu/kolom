@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap");
+
+@import "tailwindcss";
+/* for bangla font */
+.bangla_font {
+  font-family: "Hind Siliguri", sans-serif;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+.bangla_font_subHeading {
+  font-family: "Hind Siliguri", sans-serif;
+  font-weight: 500;
+}
+.bangla_font_story_showing {
+  font-family: "Hind Siliguri", sans-serif;
+  font-weight: 300;
+}
+
