@@ -51,7 +51,7 @@ if(response.ok){
 const [serverResponse, setServerResponse] = useState("")
 
 const handleUserRegistrationSubmit= async(e)=>{
-    alert('otp sent already, wait, do not click button repeatedly.')
+    alert('IT CAN TAKE A LITTLE BIT OF TIME TO SEND OTP. WAIT WAIT A BIT BEFORE RELOAD OR DOUBLE CLICK')
 e.preventDefault()
 const registerCredentials = e.currentTarget
 const formData = new FormData(registerCredentials)
