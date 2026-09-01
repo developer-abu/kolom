@@ -41,7 +41,7 @@ const StoryShowBox = () => {
               className='min-w-50 min-h-full shrink-0 border-5 border-[#E17100] rounded overflow-hidden'
             >
               <img
-                src={data.storyIMG ? `http://localhost:3000/uploads/writingIMG/${data.storyIMG}` : ''}
+                src={data.storyIMG ? `${API_URL}/uploads/writingIMG/${data.storyIMG}` : ''}
                 className='w-full h-[80%] rounded object-cover'
                 alt={data.tittle || 'Story'}
               />
