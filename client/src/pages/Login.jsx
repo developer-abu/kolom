@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
+import API_URL from '../config/api'
 
 const Login = () => {
 const navigation = useNavigate()
@@ -15,7 +16,7 @@ const handlecaptureReset=()=>{
 useEffect(()=>{
   const getCapture= async ()=>{
 try {
-  const response = await fetch("http://localhost:3000/capture",
+  const response = await fetch(`${API_URL}/capture`,
   {
     method:"GET"
   }
@@ -55,7 +56,7 @@ const capture = e.currentTarget.capture.value;
 try {
   
 const response = await fetch(
-  "http://localhost:3000/login",
+  `${API_URL}/login`,
   {
     method:"POST",
    headers: {

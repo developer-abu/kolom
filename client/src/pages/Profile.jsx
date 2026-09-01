@@ -1,7 +1,9 @@
 import React from 'react'
+
 import { useEffect,useState } from 'react'
 
 import { useNavigate } from 'react-router-dom'
+import API_URL from '../config/api'
 
 
 const Profile = () => {
@@ -20,7 +22,7 @@ const Profile = () => {
     }
 const getProfile = async ()=>{
 try {
-  const response = await fetch('http://localhost:3000/self-profile',{
+  const response = await fetch(`${API_URL}/self-profile`,{
     method:"GET",
     headers:{
       Authorization:`Bearer ${token}` 
@@ -59,7 +61,7 @@ const token = localStorage.getItem('token')
      const formdata= new FormData(myFormDataToPostStory)
 try {
 
-const response = await fetch('http://localhost:3000/self-profile',
+const response = await fetch(`${API_URL}/self-profile`,
   {
     method:"POST",
     headers:{
@@ -102,7 +104,7 @@ useEffect(() => {
 
 const getProfilePost = async()=>{
       const token = localStorage.getItem('token')
-const response = await fetch('http://localhost:3000/self-profile/posts',
+const response = await fetch(`${API_URL}/self-profile/posts`,
   {
 method:"GET",
 headers:{
@@ -129,7 +131,7 @@ const handleDeleteStory= async(id,tittle)=>{
   
   if(userConfirmation){
  const token = localStorage.getItem('token')
-  const response= await fetch(`http://localhost:3000/delete/${id}`,
+  const response= await fetch(`${API_URL}/delete/${id}`,
     {
       method:'DELETE',
       headers:{
@@ -165,7 +167,7 @@ const deleteProfile = async ()=>{
    const token = localStorage.getItem('token')
 const response = confirm('Do You Want Delete Profile ? Your Profile and the content will be deleted.');
 if(response){
-const response = await fetch(`http://localhost:3000/delete/profile`,{
+const response = await fetch(`${API_URL}/delete/profile`,{
     method:'DELETE',
       headers:{
         Authorization:`Bearer ${token}`
@@ -197,7 +199,7 @@ if(response.ok){
 
              <div className='w-full xl:w-[33%] min-h-100 h-auto rounded-2xl border flex flex-col items-center bg-[#eeaf6f]'>
                <div className='h-28 w-28 sm:h-35 sm:w-35 rounded-full mx-auto mt-2'>
-                  <img src={user?.userImg?`http://localhost:3000/uploads/userImg/${user.userImg}`:""} alt=""  className='h-full w-full rounded-full'/>
+                  <img src={user?.userImg?`${API_URL}/uploads/userImg/${user.userImg}`:""} alt=""  className='h-full w-full rounded-full'/>
                 </div>
                 <h1 className='font-[poppins] ml-5 font-black text-sm sm:text-lg md:text-xl mt-2 text-center text-[#1A1A1A] '><span className='bangla_font text-black'>নামঃ</span> {user?.name}</h1>
                 <p className='bangla_font ml-5 font-black text-sm sm:text-lg md:text-xl mt-2 text-center text-[#1A1A1A] '> <span className='text-black'>পরিচিতিঃ </span>{user?.bio}</p>

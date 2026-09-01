@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
+import API_URL from '../config/api'
 
 const ShowSingleStory = () => {
     
@@ -10,7 +11,7 @@ const ShowSingleStory = () => {
     const token = localStorage.getItem('token')
     useEffect(()=>{
         const getStory = async ()=>{
-            const response = await fetch( `http://localhost:3000/story/${id}`,
+            const response = await fetch( `${API_URL}/story/${id}`,
                 {
                     method:"GET",
                     headers:{
@@ -35,7 +36,7 @@ const ShowSingleStory = () => {
     <div className='w-full h-auto p-3 sm:p-6 md:p-10 my-10 sm:my-20 '>
         <div className='grid grid-cols-1 w-[95%] sm:w-[85%] md:w-[70%] rounded-t-2xl rounded-b-3xl h-auto mx-auto bg-green-200'>
 <div className='w-full h-48 sm:h-64 md:h-100 rounded-t-2xl'>
-<img src={storyDetails?.storyIMG?`http://localhost:3000/uploads/writingIMG/${storyDetails.storyIMG}`:""} alt="Story Photo" className='w-full h-full rounded-t-2xl object-cover' />
+<img src={storyDetails?.storyIMG?`${API_URL}/uploads/writingIMG/${storyDetails.storyIMG}`:""} alt="Story Photo" className='w-full h-full rounded-t-2xl object-cover' />
 </div>
 <div className='w-full h-auto p-4 sm:p-8 md:p-15 '>
 <h1 className='text-center bangla_font text-xl sm:text-4xl md:text-7xl break-words'>{storyDetails?.tittle} </h1>

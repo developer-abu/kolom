@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink} from 'react-router-dom'
+import API_URL from '../config/api'
 
 const StoryShowBox = () => {
 
@@ -9,7 +10,7 @@ const StoryShowBox = () => {
     
     const getProfilePost = async()=>{
         
-    const response = await fetch('http://localhost:3000/show-story',
+    const response = await fetch(`${API_URL}/show-story`,
       {
     method:"GET",
       }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
+import API_URL from '../config/api'
 
 const Register = () => {
 const navigate = useNavigate()
@@ -19,7 +20,7 @@ const handlecaptureReset=()=>{
 useEffect(()=>{
   const getCapture= async ()=>{
 try {
-  const response = await fetch("http://localhost:3000/capture",
+  const response = await fetch(`${API_URL}/capture`,
   {
     method:"GET"
   }
@@ -58,7 +59,7 @@ formData.append("captureID", captureID);
 try {
   
 const response = await fetch(
-  'http://localhost:3000/register',
+  `${API_URL}/register`,
   {
     method:"POST",
     body:formData
@@ -96,7 +97,7 @@ const handleOTPVerification = async () => {
 
     try {
 
-        const response = await fetch("http://localhost:3000/verify-otp", {
+        const response = await fetch(`${API_URL}/verify-otp`, {
             method: "POST",
 
             headers: {
