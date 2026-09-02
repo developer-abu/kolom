@@ -33,7 +33,7 @@ const Story = () => {
   storyData.map((data)=>{
   
 return <div  className='w-full min-w-0 max-w-64 h-auto min-h-64 border-5 border-[#E17100] rounded overflow-hidden mx-auto'>
-<img src={data.storyIMG?`${API_URL}/uploads/writingIMG/${data.storyIMG}`:""} className='w-full h-52 rounded object-cover'/>
+<img src={data.storyIMG || ""} className='w-full h-52 rounded object-cover'/>
 <a href={`/story/${data._id}`} className='text-blue-400 block text-center min-h-10 h-auto p-1 text-lg wrap-break-word bg-[#2A3E48]'>{data.tittle}</a>
 </div>
   })

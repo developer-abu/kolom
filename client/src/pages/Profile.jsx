@@ -199,7 +199,7 @@ if(response.ok){
 
              <div className='w-full xl:w-[33%] min-h-100 h-auto rounded-2xl border flex flex-col items-center bg-[#eeaf6f]'>
                <div className='h-28 w-28 sm:h-35 sm:w-35 rounded-full mx-auto mt-2'>
-                  <img src={user?.userImg?`${API_URL}/uploads/userImg/${user.userImg}`:""} alt=""  className='h-full w-full rounded-full'/>
+                  <img    src={user?.userImg || ""} alt=""  className='h-full w-full rounded-full'/>
                 </div>
                 <h1 className='font-[poppins] ml-5 font-black text-sm sm:text-lg md:text-xl mt-2 text-center text-[#1A1A1A] '><span className='bangla_font text-black'>নামঃ</span> {user?.name}</h1>
                 <p className='bangla_font ml-5 font-black text-sm sm:text-lg md:text-xl mt-2 text-center text-[#1A1A1A] '> <span className='text-black'>পরিচিতিঃ </span>{user?.bio}</p>
