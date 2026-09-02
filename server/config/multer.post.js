@@ -17,7 +17,7 @@ const uploadForPost = multer({
     storage: storage,
 
     limits: {
-        fileSize: 2 * 1024 * 200 // 2 MB
+        fileSize: 2 * 1024 * 1024 // 2 MB
     },
 
     fileFilter: fileFilter

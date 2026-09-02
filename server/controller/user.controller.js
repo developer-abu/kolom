@@ -402,8 +402,13 @@ const controllerForTheUserRegistration = async (req, res) => {
         // SEND OTP
 
         // ==========================
-
-        await transporter.sendMail({
+//CHECK 
+console.log("OTP GENERATED:", otp);
+console.log("EMAIL FROM:", process.env.EMAIL_USER);
+console.log("EMAIL TO:", req.body.email);
+console.log("STARTING EMAIL SEND...");
+//CHECK
+ const res =       await transporter.sendMail({
 
             from: process.env.EMAIL_USER,
 
@@ -417,7 +422,7 @@ const controllerForTheUserRegistration = async (req, res) => {
 
         });
 
-
+console.log("EMAIL SENT RESULT:", res);
 
         // ==========================
 
