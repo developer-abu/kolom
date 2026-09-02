@@ -6,7 +6,7 @@ const verifyJWT  = require('../middleware/Verify.JWT')
 const router = require('express').Router()
 
 
-router.post('/register', upload.single("userImg"), controllerForTheUserRegistration)
+router.post('/register', controllerForTheUserRegistration)
 router.post('/login',controllerForLoginControl)
 router.get('/self-profile',verifyJWT,controllerForTheProfile)
 router.get('/capture',controllerForTheCapture)
