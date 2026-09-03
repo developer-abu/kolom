@@ -35,7 +35,7 @@ const ShowSingleStory = () => {
   return (
     <div className='w-full h-auto p-3 sm:p-6 md:p-10 my-10 sm:my-20 '>
         <Helmet>
-    <title>Kolom | {id.tittle}</title>
+    <title> Kolom | {storyDetails?.tittle}</title>
 </Helmet>
         <div className='grid grid-cols-1 w-[95%] sm:w-[85%] md:w-[70%] rounded-t-2xl rounded-b-3xl h-auto mx-auto bg-green-200'>
 <div className='w-full h-48 sm:h-64 md:h-100 rounded-t-2xl'>
