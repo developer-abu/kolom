@@ -406,8 +406,179 @@ const controllerForTheUserRegistration = async (req, res) => {
 const { error } = await resend.emails.send({
     from: "onboarding@resend.dev",
     to: req.body.email,
-    subject: "Your OTP Verification Code",
-    text: `Your OTP is: ${otp}`
+    subject: "Kolom - Email Verification",
+
+    text: `Your Kolom verification code is ${otp}. This code is valid for 5 minutes.`,
+
+    html: `
+        <div style="
+            margin: 0;
+            padding: 40px 15px;
+            background-color: #f4f6f8;
+            font-family: Arial, Helvetica, sans-serif;
+        ">
+
+            <div style="
+                max-width: 520px;
+                margin: 0 auto;
+                background-color: #ffffff;
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+            ">
+
+                <!-- Header -->
+                <div style="
+                    padding: 28px 20px;
+                    background-color: #111827;
+                    text-align: center;
+                ">
+
+                    <h1 style="
+                        margin: 0;
+                        color: #ffffff;
+                        font-size: 30px;
+                        letter-spacing: 1px;
+                    ">
+                        Kolom
+                    </h1>
+
+                    <p style="
+                        margin: 8px 0 0;
+                        color: #d1d5db;
+                        font-size: 14px;
+                    ">
+                        A place for your words
+                    </p>
+
+                </div>
+
+
+                <!-- Content -->
+                <div style="
+                    padding: 35px 30px;
+                    text-align: center;
+                ">
+
+                    <h2 style="
+                        margin: 0 0 12px;
+                        color: #111827;
+                        font-size: 24px;
+                    ">
+                        Verify Your Email
+                    </h2>
+
+                    <p style="
+                        margin: 0 auto 25px;
+                        max-width: 400px;
+                        color: #6b7280;
+                        font-size: 15px;
+                        line-height: 1.6;
+                    ">
+                        Thank you for registering with Kolom.
+                        Please use the verification code below
+                        to complete your registration.
+                    </p>
+
+
+                    <!-- OTP Box -->
+                    <div style="
+                        margin: 25px auto;
+                        padding: 18px 25px;
+                        max-width: 250px;
+                        background-color: #f3f4f6;
+                        border: 1px solid #e5e7eb;
+                        border-radius: 12px;
+                    ">
+
+                        <p style="
+                            margin: 0 0 8px;
+                            color: #6b7280;
+                            font-size: 12px;
+                            text-transform: uppercase;
+                            letter-spacing: 2px;
+                        ">
+                            Verification Code
+                        </p>
+
+                        <div style="
+                            color: #111827;
+                            font-size: 32px;
+                            font-weight: bold;
+                            letter-spacing: 8px;
+                        ">
+                            ${otp}
+                        </div>
+
+                    </div>
+
+
+                    <!-- Expiry -->
+                    <p style="
+                        margin: 25px 0 0;
+                        color: #6b7280;
+                        font-size: 14px;
+                    ">
+                        This verification code will expire in
+                        <strong style="color: #111827;">
+                            5 minutes
+                        </strong>.
+                    </p>
+
+
+                    <!-- Security Notice -->
+                    <div style="
+                        margin-top: 25px;
+                        padding: 14px;
+                        background-color: #f9fafb;
+                        border-radius: 10px;
+                    ">
+
+                        <p style="
+                            margin: 0;
+                            color: #6b7280;
+                            font-size: 13px;
+                            line-height: 1.5;
+                        ">
+                            🔒 If you did not request this verification
+                            code, you can safely ignore this email.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Footer -->
+                <div style="
+                    padding: 20px;
+                    border-top: 1px solid #e5e7eb;
+                    text-align: center;
+                ">
+
+                    <p style="
+                        margin: 0;
+                        color: #9ca3af;
+                        font-size: 12px;
+                    ">
+                        © ${new Date().getFullYear()} Kolom.
+                        All rights reserved.
+                    </p>
+
+                    <p style="
+                        margin: 6px 0 0;
+                        color: #d1d5db;
+                        font-size: 11px;
+                    ">
+                        This is an automated email. Please do not reply.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+    `
 });
 
 if (error) {
