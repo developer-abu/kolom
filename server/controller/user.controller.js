@@ -808,6 +808,42 @@ const verifyOTP = async (req, res) => {
 
         await user.save();
 
+const { error } = await resend.emails.send({
+    from: "onboarding@resend.dev",
+    to: user.email,
+    subject: "Welcome to Kolom!",
+    html: `
+        <div style="font-family: Arial, sans-serif; padding: 30px;">
+            <h1>Welcome to Kolom ✍️</h1>
+
+            <p>Hello <strong>${user.name}</strong>,</p>
+
+            <p>
+                Your email has been successfully verified.
+            </p>
+
+            <p>
+                Your Kolom account is now ready to use.
+            </p>
+
+            <p>
+                Happy writing! ❤️
+            </p>
+
+            <p>
+                — Team Kolom
+            </p>
+        </div>
+    `
+});
+
+if (error) {
+    throw new Error(error.message);
+}
+
+if (error) {
+    throw new Error(error.message);
+}
 
         return res.status(200).send({
             success: true,
