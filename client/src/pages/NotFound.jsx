@@ -1,10 +1,13 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-
+import { Helmet } from "react-helmet-async";
 const NotFound = () => {
     const navigate = useNavigate()
   return (
        <main className="flex min-h-screen flex-col items-center justify-center bg-gray-50 px-6 py-24 text-center sm:py-32 lg:px-8">
+        <Helmet>
+    <title>Kolom | Page Not Found</title>
+</Helmet>
       <div className="max-w-md">
         
         

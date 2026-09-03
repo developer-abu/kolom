@@ -4,7 +4,7 @@ import { useEffect,useState } from 'react'
 
 import { useNavigate } from 'react-router-dom'
 import API_URL from '../config/api'
-
+import { Helmet } from "react-helmet-async";
 
 const Profile = () => {
 // for getting user info 
@@ -190,6 +190,9 @@ if(response.ok){
 
   return (
    <div className='h-auto w-full px-2 sm:px-5'>
+    <Helmet>
+    <title>Kolom | Profile</title>
+</Helmet>
             <div className='bg-amber-600 w-full h-20 flex items-center justify-around'>
                <h1 className=' text-sm sm:text-lg md:text-2xl font-bold bangla_font'>{user?.name} আপনাকে কলমে স্বাগতম</h1>
               

@@ -402,21 +402,19 @@ const controllerForTheUserRegistration = async (req, res) => {
         // ==========================
 
         // SEND OTP
-console.log("BEFORE RESEND");
         // ==========================
-const { data, error } = await resend.emails.send({
+const { error } = await resend.emails.send({
     from: "onboarding@resend.dev",
     to: req.body.email,
     subject: "Your OTP Verification Code",
     text: `Your OTP is: ${otp}`
 });
-console.log("AFTER RESEND");
+
 if (error) {
     throw new Error(error.message);
 }
 
-console.log("EMAIL SENT RESULT:", data);
-console.log("EMAIL SENT RESULT:", error);
+
 
 
         // ==========================

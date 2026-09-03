@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import API_URL from '../config/api'
-
+import { Helmet } from "react-helmet-async";
 const Story = () => {
 
    const [storyData, setStoryData] = useState([])
@@ -28,6 +28,9 @@ const Story = () => {
       }, [])
   return (
     <div  className='w-full max-w-7xl h-auto my-10 sm:my-20 mx-auto bg-green-200 p-4 sm:p-6 md:p-10 grid gap-6 sm:gap-8 lg:gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'>
+      <Helmet>
+    <title>Kolom | story</title>
+</Helmet>
 
 {
   storyData.map((data)=>{

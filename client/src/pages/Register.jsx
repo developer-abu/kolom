@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import API_URL from '../config/api'
-
+import { Helmet } from "react-helmet-async";
 const Register = () => {
 const navigate = useNavigate()
 // for otp 
@@ -130,6 +130,9 @@ const handleOTPVerification = async () => {
 
   return (
      <div className='w-full min-h-screen flex justify-around items-start text-black font-[poppins] py-8 sm:py-12'>
+      <Helmet>
+    <title>Kolom | Register</title>
+</Helmet>
    <div className='h-auto w-[95%] sm:w-[80%] md:w-[65%] lg:w-[50%] bg-white border-2 rounded-2xl p-1 sm:p-4 md:p-6 mx-auto'>
   
   <h1 className='capitalize font-[poppins] text-xl sm:text-2xl md:text-3xl text-black bg-blue-500 text-center rounded-2xl'>Registration Page</h1>

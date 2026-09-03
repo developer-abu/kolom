@@ -16,6 +16,7 @@ import ShowSingleStory from './pages/ShowSingleStory';
 const App = () => {
   return (
     <div>
+   
 <BrowserRouter>
 <Header/>
 
@@ -32,6 +33,7 @@ const App = () => {
 
 <Footer/>
 </BrowserRouter>
+
     </div>
   )
 }
