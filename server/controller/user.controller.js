@@ -14,7 +14,9 @@ const {
     crypto
 } = require("../verification/capture");
 
-const transporter = require("../config/mailer");
+const resend = require("../config/mailer");
+
+
 
 
 // ======================================================
@@ -402,27 +404,19 @@ const controllerForTheUserRegistration = async (req, res) => {
         // SEND OTP
 
         // ==========================
-//CHECK 
-console.log("OTP GENERATED:", otp);
-console.log("EMAIL FROM:", process.env.EMAIL_USER);
-console.log("EMAIL TO:", req.body.email);
-console.log("STARTING EMAIL SEND...");
-//CHECK
- const res =       await transporter.sendMail({
+const { data, error } = await resend.emails.send({
+    from: "onboarding@resend.dev",
+    to: req.body.email,
+    subject: "Your OTP Verification Code",
+    text: `Your OTP is: ${otp}`
+});
 
-            from: process.env.EMAIL_USER,
+if (error) {
+    throw new Error(error.message);
+}
 
-            to: req.body.email,
+console.log("EMAIL SENT RESULT:", data);
 
-            subject:
-                "Kolom Verification Code for Registration",
-
-            text:
-                `Welcome to KOLOM. Your OTP for verification of registration at KOLOM is ${otp}. This OTP will expire in 5 minutes.`
-
-        });
-
-console.log("EMAIL SENT RESULT:", res);
 
         // ==========================
 

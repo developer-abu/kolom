@@ -1,32 +1,7 @@
-require('dotenv').config({ path: '../.env' })
-const dns = require('dns');
+require('dotenv').config({ path: '../.env' });
 
-const nodemailer = require('nodemailer')
+const { Resend } = require('resend');
 
-const lookup = (hostname, options, callback) => {
-    dns.lookup(hostname, { family: 4 }, callback);
-};
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-const transporter  = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false,
-
-     connectionTimeout: 10000,
-    greetingTimeout: 10000,
-    socketTimeout: 10000,
-lookup:lookup,
-    auth:{
-        user:process.env.EMAIL_USER,
-        pass:process.env.EMAIL_PASS
-    }
-})
-transporter.verify((error, success) => {
-    if (error) {
-        console.log("SMTP VERIFY ERROR:", error);
-    } else {
-        console.log("SMTP SERVER READY:", success);
-    }
-});
-
-module.exports = transporter 
+module.exports = resend;
